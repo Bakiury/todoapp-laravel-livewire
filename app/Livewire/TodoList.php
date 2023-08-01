@@ -20,7 +20,7 @@ class TodoList extends Component
             $todo->task = $this->task;
             $todo->save();
 
-            $this->$task = '';
+            $this->task = '';
         }
     }
 
