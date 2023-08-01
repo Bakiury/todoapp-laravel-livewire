@@ -21,7 +21,20 @@ class TodoList extends Component
             $todo->save();
 
             $this->task = '';
+            $this->fetchTodos();
         }
+    }
+
+    function markAsDone(Todo $todo) {
+        $todo->status = 'done';
+        $todo->save();
+
+        $this->fetchTodos();
+    }
+
+    function remove(Todo $todo) {
+        $todo->delete();
+        $this->fetchTodos();
     }
 
     function mount() {
